@@ -1,10 +1,11 @@
 import { useMemo, useState } from 'react'
-import { ChevronDown, Flame, Plus, Search, SearchX, Swords, Timer, Zap } from 'lucide-react'
+import { Flame, Plus, Search, SearchX, Swords, Timer, Zap } from 'lucide-react'
 import type { MarketFilter, OpenBattle } from '../types'
 import { stats } from '../data'
 import { compactMoney, duration, money } from '../format'
 import { useCountUp } from '../hooks'
 import { AmbientBolt, Avatar, Eyebrow } from './ui'
+import { Select } from './Select'
 import { CreateBattleDialog } from './CreateBattleDialog'
 
 const MARKETS: MarketFilter[] = ['ALL', 'ETH', 'BTC', 'SOL']
@@ -103,17 +104,14 @@ export function BattleView({ battles, onCreate, onChallenge }: Props) {
               </button>
             ))}
           </div>
-          <label className="select">
-            <span>Entry:</span>
-            <select value={entry} onChange={(e) => setEntry(Number(e.target.value))} aria-label="Entry size">
-              {ENTRY_OPTIONS.map((o, i) => (
-                <option key={o.label} value={i}>
-                  {o.label}
-                </option>
-              ))}
-            </select>
-            <ChevronDown size={14} aria-hidden="true" />
-          </label>
+          <Select
+            className="dd-toolbar"
+            label="Entry size"
+            prefix="Entry:"
+            value={entry}
+            options={ENTRY_OPTIONS.map((o, i) => ({ value: i, label: o.label }))}
+            onChange={setEntry}
+          />
         </div>
 
         {shown.length ? (

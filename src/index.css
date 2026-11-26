@@ -511,43 +511,6 @@ img {
 .segmented-full button {
   flex: 1;
 }
-.select {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  min-height: 44px;
-  padding: 0 12px;
-  color: var(--muted);
-  font-size: 13px;
-  border-left: 1px solid var(--line);
-}
-.select select {
-  appearance: none;
-  background: none;
-  border: 0;
-  color: var(--text);
-  font-weight: 600;
-  padding-right: 18px;
-  min-height: 44px;
-  cursor: pointer;
-}
-.select select option {
-  background: var(--surface-2);
-}
-.select svg {
-  position: absolute;
-  right: 12px;
-  pointer-events: none;
-}
-.select:focus-within {
-  outline: 2px solid var(--accent);
-  border-radius: var(--r-md);
-}
-.select select:focus-visible {
-  outline: 0;
-}
-
 /* ---------- Cards ---------- */
 .grid {
   display: grid;
@@ -1079,7 +1042,7 @@ img {
   .stake-row .input-wrap {
     width: 100%;
   }
-  .select {
+  .dd-toolbar .dd-btn {
     border-left: 0;
   }
   .versus {
@@ -1279,4 +1242,80 @@ img {
 .btn-battlefield:hover {
   animation-play-state: paused;
   box-shadow: 0 0 0 2px var(--spark), 0 14px 56px rgba(255, 138, 31, 0.55);
+}
+
+/* ---------- Custom dropdown ---------- */
+.dd {
+  position: relative;
+}
+.dd-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 0 14px;
+  border-radius: var(--r-md);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-strong);
+  transition: background 0.2s;
+}
+.dd-btn:hover {
+  background: var(--surface-2);
+}
+.dd-btn[aria-expanded='true'] {
+  background: var(--surface-2);
+}
+.dd-prefix {
+  color: var(--muted);
+  font-weight: 500;
+}
+.dd-chev {
+  color: var(--muted);
+  transition: transform 0.2s var(--ease);
+}
+.dd-btn[aria-expanded='true'] .dd-chev {
+  transform: rotate(180deg);
+}
+.dd-toolbar {
+  border-left: 1px solid var(--line);
+}
+.dd-list {
+  position: absolute;
+  z-index: 30;
+  top: calc(100% + 6px);
+  left: 0;
+  min-width: max(100%, 168px);
+  padding: 6px;
+  background: var(--surface-2);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--r-md);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.55);
+  animation: pop 0.16s var(--ease);
+  transform-origin: top left;
+}
+.dd-list.is-flip {
+  left: auto;
+  right: 0;
+  transform-origin: top right;
+}
+.dd-opt {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 40px;
+  padding: 0 12px;
+  border-radius: var(--r-sm);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
+  cursor: pointer;
+}
+.dd-opt.is-active {
+  background: var(--surface-3);
+  color: var(--text-strong);
+}
+.dd-opt.is-selected {
+  color: var(--accent);
 }
