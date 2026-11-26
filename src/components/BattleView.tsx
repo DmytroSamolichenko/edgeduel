@@ -89,9 +89,6 @@ export function BattleView({ battles, onCreate, onChallenge }: Props) {
             <h2 id="open-h">Open battles</h2>
             <p className="muted">Find your match and enter the arena</p>
           </div>
-          <button className="btn btn-primary" onClick={() => setCreating(true)}>
-            <Plus size={16} /> Create battle
-          </button>
         </div>
 
         <div className="toolbar">
