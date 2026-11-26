@@ -44,6 +44,14 @@
 html {
   -webkit-text-size-adjust: 100%;
 }
+/* hide every scrollbar; scrolling itself still works */
+* {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+*::-webkit-scrollbar {
+  display: none;
+}
 body {
   font-family: var(--font);
   font-size: 15px;
