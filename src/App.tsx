@@ -138,9 +138,6 @@ export default function App() {
           )}
         </div>
       </main>
-      <footer className="footer">
-        <p>EdgeDuel · Demo interface, no real funds. Trading with leverage carries risk.</p>
-      </footer>
       <Toast message={toast} />
 
       {arena && (
