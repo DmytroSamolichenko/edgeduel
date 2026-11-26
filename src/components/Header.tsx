@@ -58,10 +58,6 @@ export function Header({ tab, onTab, connected, onToggleWallet }: Props) {
         </nav>
 
         <div className="header-actions">
-          <span className="chip-btn chain" title="EdgeDuel runs on Solana">
-            <SolanaMark />
-            Solana
-          </span>
           {connected && <span className="chip-btn chain balance tnum" title="Demo USDC balance">{money(Math.floor(balance))}</span>}
           <button
             className={`btn btn-primary ${connected ? 'is-connected' : ''}`}
@@ -74,24 +70,5 @@ export function Header({ tab, onTab, connected, onToggleWallet }: Props) {
         </div>
       </div>
     </header>
-  )
-}
-
-function SolanaMark() {
-  return (
-    <svg className="sol-mark" width="22" height="22" viewBox="0 0 24 24" aria-hidden="true">
-      <defs>
-        <linearGradient id="sol-g" x1="3" y1="21" x2="21" y2="3" gradientUnits="userSpaceOnUse">
-          <stop offset="0" stopColor="#9945ff" />
-          <stop offset="0.5" stopColor="#5d8bf0" />
-          <stop offset="1" stopColor="#14f195" />
-        </linearGradient>
-      </defs>
-      <g fill="url(#sol-g)">
-        <path d="M5.2 3.2h16.3l-2.7 3.9H2.5z" />
-        <path d="M2.5 10h16.3l2.7 3.9H5.2z" />
-        <path d="M5.2 16.9h16.3l-2.7 3.9H2.5z" />
-      </g>
-    </svg>
   )
 }
